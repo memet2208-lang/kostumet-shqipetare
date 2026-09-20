@@ -2,128 +2,284 @@
 <html lang="sq">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Kostumet Shqiptare</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atlas i Kostumeve Shqiptare</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-  min-height:100vh;
-  background:#17130f;
-  color:#f5ead7;
+  background:#100d0a;
+  color:#f4ead9;
   font-family:Georgia,serif;
+  min-height:100vh;
 }
 
-header{
+/* MENU */
+.menu{
+  position:sticky;
+  top:0;
+  z-index:10;
+  display:flex;
+  overflow-x:auto;
+  gap:7px;
+  padding:12px 10px;
+  background:#17110d;
+  border-bottom:1px solid #8d693d;
+  scrollbar-width:none;
+}
+
+.menu::-webkit-scrollbar{display:none}
+
+.menu button{
+  flex:0 0 auto;
+  background:transparent;
+  color:#eadbc4;
+  border:0;
+  padding:8px 10px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.menu button:hover{
+  color:#d9b77a;
+}
+
+/* HERO */
+.hero{
+  min-height:68vh;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
   text-align:center;
-  padding:32px 15px 20px;
-  border-bottom:1px solid #80643e;
+  padding:45px 20px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 35%,#4b3421 0,#21160f 38%,#100d0a 75%);
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 12px,
+      rgba(214,174,108,.025) 13px,
+      transparent 14px
+    );
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:650px;
+}
+
+.label{
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-size:11px;
+  color:#c5a36d;
+  margin-bottom:15px;
 }
 
 h1{
-  font-size:30px;
-  margin-bottom:8px;
-}
-
-header p{
-  font-size:14px;
-  opacity:.8;
-}
-
-nav{
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  padding:15px 8px;
-  flex-wrap:wrap;
-}
-
-nav button{
-  background:#2a2118;
-  color:#f5ead7;
-  border:1px solid #80643e;
-  border-radius:20px;
-  padding:9px 14px;
-  font-size:13px;
-}
-
-.hero{
-  min-height:55vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:30px 20px;
-}
-
-.hero-inner{
-  max-width:600px;
-}
-
-.hero h2{
-  font-size:34px;
-  margin-bottom:18px;
+  font-size:40px;
+  line-height:1.05;
+  margin-bottom:16px;
 }
 
 .hero p{
+  font-size:16px;
   line-height:1.6;
-  opacity:.85;
+  color:#d9cbb8;
 }
 
-.enter{
+.start{
+  display:inline-block;
   margin-top:25px;
-  padding:13px 25px;
-  border-radius:25px;
-  border:1px solid #b99a67;
-  background:#3a2b1d;
-  color:white;
-  font-size:16px;
+  padding:13px 27px;
+  border:1px solid #b98d52;
+  border-radius:30px;
+  color:#fff4df;
+  background:#382719;
+  font-size:15px;
+}
+
+/* KRAHINAT */
+.section{
+  padding:35px 15px 45px;
+}
+
+.section h2{
+  text-align:center;
+  font-size:26px;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  text-align:center;
+  color:#b9aa95;
+  font-size:14px;
+  margin-bottom:25px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  max-width:700px;
+  margin:auto;
+}
+
+.card{
+  min-height:180px;
+  position:relative;
+  border:1px solid #6f5434;
+  border-radius:16px;
+  overflow:hidden;
+  background:
+    linear-gradient(to top,#17100b,rgba(37,26,17,.55)),
+    radial-gradient(circle at 50% 25%,#705034,#261a12 70%);
+}
+
+.card-content{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:15px;
+  background:linear-gradient(transparent,rgba(0,0,0,.85));
+}
+
+.card h3{
+  font-size:18px;
+  margin-bottom:4px;
+}
+
+.card p{
+  font-size:11px;
+  color:#cabba6;
+}
+
+/* 3D */
+.viewer{
+  margin:0 15px 40px;
+  padding:30px 20px;
+  text-align:center;
+  border:1px solid #725538;
+  border-radius:18px;
+  background:#18110d;
+}
+
+.viewer .cube{
+  font-size:55px;
+  margin-bottom:10px;
+}
+
+.viewer h2{
+  margin-bottom:10px;
+}
+
+.viewer p{
+  color:#bbaa95;
+  line-height:1.5;
+  font-size:14px;
 }
 
 footer{
+  border-top:1px solid #4f3b28;
+  padding:25px 15px;
   text-align:center;
-  padding:20px;
+  color:#8f806d;
   font-size:12px;
-  opacity:.6;
+}
+
+@media(min-width:700px){
+  .cards{grid-template-columns:repeat(4,1fr)}
+  h1{font-size:55px}
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Kostumet Tradicionale Shqiptare</h1>
-  <p>Atlas digjital i trashëgimisë shqiptare</p>
-</header>
-
-<nav>
+<nav class="menu">
   <button>Ballina</button>
   <button>Kostumet</button>
+  <button>Krahinat</button>
   <button>Harta</button>
   <button>3D</button>
   <button>Historia</button>
+  <button>Rreth Atlasit</button>
 </nav>
 
 <section class="hero">
-  <div class="hero-inner">
-    <h2>Trashëgimia që vishet</h2>
-
+  <div class="hero-content">
+    <div class="label">Trashëgimia shqiptare</div>
+    <h1>Kostumet Tradicionale Shqiptare</h1>
     <p>
-      Zbulo kostumet tradicionale shqiptare sipas krahinave,
-      historisë dhe elementeve të tyre karakteristike.
+      Një udhëtim vizual në veshjet, mjeshtërinë
+      dhe identitetin e krahinave shqiptare.
     </p>
-
-    <button class="enter">Hyr në Atlas</button>
+    <div class="start">Zbulo Atlasin</div>
   </div>
 </section>
 
+<section class="section">
+  <h2>Krahinat</h2>
+  <div class="subtitle">
+    Zgjidh një krahinë për të zbuluar kostumet e saj
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-content">
+        <h3>Veriu</h3>
+        <p>Malësi • Dukagjin • Shkodër</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-content">
+        <h3>Shqipëria e Mesme</h3>
+        <p>Tiranë • Elbasan • Durrës</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-content">
+        <h3>Jugu</h3>
+        <p>Myzeqe • Labëri • Toskëri</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-content">
+        <h3>Trojet & Diaspora</h3>
+        <p>Kosovë • Arbëreshë • Arvanitë</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="viewer">
+  <div class="cube">◇</div>
+  <h2>Galeria 3D</h2>
+  <p>
+    Këtu do të vendosen modelet 3D të kostumeve,
+    me rrotullim dhe zmadhim direkt nga telefoni.
+  </p>
+</section>
+
 <footer>
-  Kostumet Shqiptare • Atlas Digjital
+  Atlas Digjital • Kostumet Tradicionale Shqiptare
 </footer>
 
 </body>
