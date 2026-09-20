@@ -2,357 +2,240 @@
 <html lang="sq">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kostumet Tradicionale Shqiptare</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
   background:#100d0a;
   color:#f4ead9;
   font-family:Georgia,serif;
-  min-height:100vh;
 }
+section{scroll-margin-top:70px}
 
 /* MENU */
 .menu{
   position:sticky;
   top:0;
-  z-index:100;
+  z-index:1000;
   display:flex;
+  gap:24px;
   overflow-x:auto;
-  gap:22px;
-  padding:18px 20px;
+  padding:18px;
   background:#120e0b;
   border-bottom:1px solid #80643e;
   scrollbar-width:none;
 }
-
-.menu::-webkit-scrollbar{
-  display:none;
-}
-
+.menu::-webkit-scrollbar{display:none}
 .menu a{
   flex:0 0 auto;
   color:#eadbc4;
   text-decoration:none;
-  font-family:Arial,sans-serif;
-  font-size:15px;
-  font-weight:bold;
-  white-space:nowrap;
+  font:700 15px Arial,sans-serif;
 }
+.menu a:active{color:#d9b77a}
 
-.menu a:hover{
-  color:#d9b77a;
-}
-
-/* HERO */
+/* BALLINA */
 .hero{
   min-height:72vh;
-  position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
   padding:60px 22px;
-  overflow:hidden;
   background:
-    radial-gradient(circle at 50% 38%,#4b3421 0,#21160f 40%,#100d0a 76%);
+    radial-gradient(circle at 50% 35%,#503722 0,#241810 42%,#100d0a 78%);
 }
-
-.hero:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  opacity:.22;
-  background:
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 12px,
-      rgba(214,174,108,.15) 13px,
-      transparent 14px
-    );
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:720px;
-}
-
+.hero-inner{max-width:720px}
 .label{
-  color:#d6b27b;
-  font-family:Arial,sans-serif;
-  font-size:14px;
-  font-weight:bold;
+  color:#d4ae73;
+  font:700 13px Arial,sans-serif;
   letter-spacing:5px;
   margin-bottom:25px;
 }
-
 .hero h1{
   font-size:clamp(45px,10vw,76px);
-  line-height:.98;
-  margin-bottom:30px;
+  line-height:1;
+  margin-bottom:28px;
 }
-
 .hero p{
-  color:#ddcfba;
-  font-size:clamp(20px,5vw,28px);
+  color:#d8cab6;
+  font-size:clamp(19px,5vw,27px);
   line-height:1.55;
 }
-
-.main-button{
+.primary{
   display:inline-block;
-  margin-top:38px;
-  padding:17px 38px;
-  border:1px solid #c99c5d;
-  border-radius:40px;
+  margin-top:34px;
+  padding:15px 30px;
   color:#fff5e6;
   text-decoration:none;
+  border:1px solid #c99c5d;
+  border-radius:32px;
   background:#3b2718;
-  font-size:20px;
+  font-size:18px;
 }
 
-/* SECTIONS */
+/* SEKSIONET */
 .section{
-  padding:70px 20px;
   max-width:1100px;
   margin:auto;
+  padding:65px 18px;
 }
-
 .section-title{
   text-align:center;
-  font-size:42px;
-  margin-bottom:12px;
+  font-size:38px;
+  margin-bottom:10px;
 }
-
 .subtitle{
+  max-width:700px;
+  margin:0 auto 35px;
   text-align:center;
-  color:#cbbb9f;
-  font-size:19px;
-  line-height:1.5;
-  margin-bottom:40px;
+  color:#bfae96;
+  line-height:1.55;
+  font-size:16px;
 }
 
-/* REGIONS */
+/* KRAHINAT */
 .regions{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:16px;
+  gap:13px;
 }
-
 .region{
-  min-height:165px;
-  border:1px solid #765936;
-  border-radius:24px;
-  padding:25px 18px;
+  min-height:145px;
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
+  padding:17px;
+  border:1px solid #765936;
+  border-radius:20px;
   background:
-    linear-gradient(180deg,#21170f,#3a2618);
+    radial-gradient(circle at 50% 15%,#4a3321,#21170f 72%);
 }
+.region h3{font-size:19px;margin-bottom:6px}
+.region p{font-size:12px;color:#c5b49d;line-height:1.4}
 
-.region h3{
-  font-size:23px;
-  margin-bottom:7px;
+/* KOSTUMET */
+.filters{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding-bottom:18px;
+  scrollbar-width:none;
 }
-
-.region p{
-  color:#cdbda5;
-  line-height:1.45;
-  font-size:14px;
+.filters::-webkit-scrollbar{display:none}
+.filter{
+  flex:0 0 auto;
+  border:1px solid #775b3b;
+  border-radius:22px;
+  padding:9px 14px;
+  background:#1d1510;
+  color:#eadbc4;
+  font-size:13px;
 }
-
-/* COSTUMES */
-.costume-grid{
+.costumes{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:18px;
+  gap:14px;
 }
-
 .costume{
-  min-height:260px;
-  border:1px solid #715637;
-  border-radius:22px;
   overflow:hidden;
-  background:#19130f;
+  border:1px solid #6e5336;
+  border-radius:20px;
+  background:#18120e;
 }
-
-.costume-image{
-  height:185px;
+.costume-photo{
+  height:180px;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:20px;
   background:
-    radial-gradient(circle,#4b3421,#1a120d 70%);
-  color:#bda98a;
-  font-family:Arial,sans-serif;
+    radial-gradient(circle at 50% 35%,#5b4029,#21170f 70%);
+  color:#bca889;
+  font:700 12px Arial,sans-serif;
+  letter-spacing:1px;
 }
+.costume-info{padding:14px}
+.costume-info h3{font-size:17px;margin-bottom:5px}
+.costume-info p{font-size:12px;color:#bfae96}
 
-.costume-info{
-  padding:18px;
-}
-
-.costume-info h3{
-  margin-bottom:7px;
-}
-
-.costume-info p{
-  color:#c7b79e;
-  font-size:14px;
-  line-height:1.45;
-}
-
-/* MAP */
-.map-box{
+/* HARTA */
+.map{
   min-height:390px;
-  border:1px solid #80643e;
-  border-radius:30px;
   display:flex;
   align-items:center;
   justify-content:center;
+  padding:30px;
   text-align:center;
-  padding:35px;
+  border:1px solid #765936;
+  border-radius:26px;
   background:
-    radial-gradient(circle at center,#3c291b,#17110d 70%);
+    radial-gradient(circle,#49321f,#18110d 72%);
 }
-
-.map-symbol{
-  font-size:70px;
-  margin-bottom:20px;
-}
-
-.map-box h3{
-  font-size:30px;
-  margin-bottom:15px;
-}
-
-.map-box p{
-  color:#cbbb9f;
-  line-height:1.6;
-}
+.map-icon{font-size:65px;margin-bottom:18px}
+.map h3{font-size:28px;margin-bottom:12px}
+.map p{color:#bfae96;line-height:1.6}
 
 /* 3D */
 .viewer{
   min-height:430px;
-  border:1px solid #80643e;
-  border-radius:30px;
-  background:
-    radial-gradient(circle,#38271a,#120e0b 70%);
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
   padding:30px;
+  text-align:center;
+  border:1px solid #765936;
+  border-radius:26px;
+  background:
+    radial-gradient(circle,#3c291b,#15100c 72%);
 }
-
-.cube{
-  width:115px;
-  height:115px;
-  margin:0 auto 30px;
-  border:2px solid #d0a76b;
-  border-radius:20px;
-  transform:rotate(12deg);
+.model{
+  width:120px;
+  height:120px;
+  margin:0 auto 25px;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-family:Arial,sans-serif;
-  color:#d7b681;
-  font-size:24px;
+  border:2px solid #c89c60;
+  border-radius:24px;
+  transform:rotate(8deg);
+  color:#d9b77a;
+  font:700 27px Arial,sans-serif;
 }
+.viewer h3{font-size:29px;margin-bottom:12px}
+.viewer p{color:#bfae96;line-height:1.6}
 
-.viewer h3{
-  font-size:31px;
-  margin-bottom:15px;
-}
-
-.viewer p{
-  max-width:600px;
-  color:#cbbb9f;
-  line-height:1.6;
-}
-
-/* HISTORY */
+/* HISTORIA */
 .history{
-  border-left:2px solid #9e7544;
-  padding-left:25px;
+  max-width:760px;
+  margin:auto;
+  border-left:2px solid #956e42;
+  padding-left:22px;
 }
-
-.history h3{
-  font-size:27px;
-  margin-bottom:12px;
-}
-
+.history h3{font-size:24px;margin-bottom:10px}
 .history p{
-  color:#cbbb9f;
+  color:#c6b59d;
   line-height:1.75;
-  margin-bottom:28px;
+  margin-bottom:30px;
 }
 
 /* FOOTER */
 footer{
+  padding:40px 20px;
   text-align:center;
-  padding:45px 20px;
-  color:#958774;
-  border-top:1px solid #36291e;
+  border-top:1px solid #382a1e;
+  color:#91816e;
+  font-size:12px;
+  line-height:1.7;
 }
 
-/* MOBILE */
-@media(max-width:600px){
-
-  .menu{
-    gap:25px;
-    padding:18px 18px;
-  }
-
-  .hero{
-    min-height:70vh;
-  }
-
-  .section{
-    padding:58px 18px;
-  }
-
-  .section-title{
-    font-size:36px;
-  }
-
-  .regions,
-  .costume-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .region{
-    min-height:150px;
-    padding:18px 14px;
-  }
-
-  .region h3{
-    font-size:19px;
-  }
-
-  .costume{
-    min-height:230px;
-  }
-
-  .costume-image{
-    height:155px;
-  }
+@media(min-width:760px){
+  .regions{grid-template-columns:repeat(4,1fr)}
+  .costumes{grid-template-columns:repeat(4,1fr)}
 }
-
 </style>
 </head>
 
@@ -363,332 +246,185 @@ footer{
   <a href="#kostumet">Kostumet</a>
   <a href="#krahinat">Krahinat</a>
   <a href="#harta">Harta</a>
-  <a href="#treD">3D</a>
+  <a href="#3d">3D</a>
   <a href="#historia">Historia</a>
 </nav>
 
-<!-- BALLINA -->
 <section class="hero" id="ballina">
+  <div class="hero-inner">
+    <div class="label">TRASHËGIMIA SHQIPTARE</div>
 
-  <div class="hero-content">
-
-    <div class="label">
-      TRASHËGIMIA SHQIPTARE
-    </div>
-
-    <h1>
-      Kostumet<br>
-      Tradicionale<br>
-      Shqiptare
-    </h1>
+    <h1>Kostumet<br>Tradicionale<br>Shqiptare</h1>
 
     <p>
-      Një udhëtim vizual në veshjet,
-      mjeshtërinë dhe identitetin
-      e krahinave shqiptare.
+      Një udhëtim vizual në veshjet, mjeshtërinë
+      dhe identitetin e krahinave shqiptare.
     </p>
 
-    <a class="main-button" href="#krahinat">
-      Zbulo Atlasin
-    </a>
-
+    <a class="primary" href="#krahinat">Zbulo Atlasin</a>
   </div>
-
 </section>
 
-
-<!-- KRAHINAT -->
 <section class="section" id="krahinat">
-
   <h2 class="section-title">Krahinat</h2>
-
   <p class="subtitle">
-    Zgjidh një trevë për të zbuluar veshjet,
-    variantet dhe traditat e saj.
+    Zgjidh një trevë për të zbuluar veshjet dhe traditat e saj.
   </p>
 
   <div class="regions">
+    <div class="region"><h3>Malësia e Madhe</h3><p>Tradita e Veriut shqiptar</p></div>
+    <div class="region"><h3>Shkodër</h3><p>Qytet dhe malësi</p></div>
+    <div class="region"><h3>Dukagjin</h3><p>Trevat e Alpeve</p></div>
+    <div class="region"><h3>Mirditë</h3><p>Trashëgimi krahinore</p></div>
 
-    <div class="region">
-      <h3>Malësia e Madhe</h3>
-      <p>Veshje të Veriut shqiptar.</p>
-    </div>
+    <div class="region"><h3>Kukës</h3><p>Verilindja shqiptare</p></div>
+    <div class="region"><h3>Dibër</h3><p>Dibra dhe rrethinat</p></div>
+    <div class="region"><h3>Mat</h3><p>Tradita e Matit</p></div>
+    <div class="region"><h3>Krujë</h3><p>Shqipëria e Mesme</p></div>
 
-    <div class="region">
-      <h3>Shkodër</h3>
-      <p>Tradita qytetare dhe malësore.</p>
-    </div>
+    <div class="region"><h3>Tiranë</h3><p>Veshje qytetare dhe fshatare</p></div>
+    <div class="region"><h3>Elbasan</h3><p>Tradita e Shqipërisë së Mesme</p></div>
+    <div class="region"><h3>Myzeqe</h3><p>Fier • Lushnjë • Myzeqe</p></div>
+    <div class="region"><h3>Berat</h3><p>Qytet dhe krahinë</p></div>
 
-    <div class="region">
-      <h3>Dukagjin</h3>
-      <p>Veshje karakteristike të Alpeve.</p>
-    </div>
+    <div class="region"><h3>Korçë</h3><p>Shqipëria Juglindore</p></div>
+    <div class="region"><h3>Kolonjë</h3><p>Tradita juglindore</p></div>
+    <div class="region"><h3>Përmet</h3><p>Lugina e Vjosës</p></div>
+    <div class="region"><h3>Gjirokastër</h3><p>Qytet dhe fshat</p></div>
 
-    <div class="region">
-      <h3>Mirditë</h3>
-      <p>Trashëgimi e pasur krahinore.</p>
-    </div>
+    <div class="region"><h3>Labëri</h3><p>Tradita e Jugut</p></div>
+    <div class="region"><h3>Çamëri</h3><p>Trashëgimia e trevës</p></div>
+    <div class="region"><h3>Kosovë</h3><p>Variantet krahinore shqiptare</p></div>
+    <div class="region"><h3>Maqedonia e Veriut</h3><p>Trevat shqiptare lindore</p></div>
 
-    <div class="region">
-      <h3>Kukës</h3>
-      <p>Veshje të trevave verilindore.</p>
-    </div>
-
-    <div class="region">
-      <h3>Dibër</h3>
-      <p>Tradita e Dibrës dhe rrethinave.</p>
-    </div>
-
-    <div class="region">
-      <h3>Mat</h3>
-      <p>Elemente karakteristike të Matit.</p>
-    </div>
-
-    <div class="region">
-      <h3>Krujë</h3>
-      <p>Veshje të Shqipërisë së Mesme.</p>
-    </div>
-
-    <div class="region">
-      <h3>Tiranë</h3>
-      <p>Veshje qytetare dhe fshatare.</p>
-    </div>
-
-    <div class="region">
-      <h3>Elbasan</h3>
-      <p>Tradita të Shqipërisë së Mesme.</p>
-    </div>
-
-    <div class="region">
-      <h3>Myzeqe</h3>
-      <p>Veshjet e fushës së Myzeqesë.</p>
-    </div>
-
-    <div class="region">
-      <h3>Berat</h3>
-      <p>Tradita qytetare dhe krahinore.</p>
-    </div>
-
-    <div class="region">
-      <h3>Korçë</h3>
-      <p>Veshje të Shqipërisë juglindore.</p>
-    </div>
-
-    <div class="region">
-      <h3>Kolonjë</h3>
-      <p>Tradita karakteristike juglindore.</p>
-    </div>
-
-    <div class="region">
-      <h3>Përmet</h3>
-      <p>Veshje të luginës së Vjosës.</p>
-    </div>
-
-    <div class="region">
-      <h3>Gjirokastër</h3>
-      <p>Veshje qytetare dhe fshatare.</p>
-    </div>
-
-    <div class="region">
-      <h3>Labëri</h3>
-      <p>Veshjet karakteristike të Labërisë.</p>
-    </div>
-
-    <div class="region">
-      <h3>Çamëri</h3>
-      <p>Trashëgimi tradicionale e trevës.</p>
-    </div>
-
-    <div class="region">
-      <h3>Kosovë</h3>
-      <p>Variantet e shumta të veshjeve shqiptare.</p>
-    </div>
-
-    <div class="region">
-      <h3>Shqiptarët e Maqedonisë</h3>
-      <p>Veshje të trevave shqiptare lindore.</p>
-    </div>
-
-    <div class="region">
-      <h3>Mal i Zi</h3>
-      <p>Veshje të trevave shqiptare veriperëndimore.</p>
-    </div>
-
-    <div class="region">
-      <h3>Arbëreshët</h3>
-      <p>Trashëgimia shqiptare në Itali.</p>
-    </div>
-
-    <div class="region">
-      <h3>Arvanitët</h3>
-      <p>Tradita historike në Greqi.</p>
-    </div>
-
-    <div class="region">
-      <h3>Shqiptarët e Ukrainës</h3>
-      <p>Trashëgimi e komuniteteve historike shqiptare.</p>
-    </div>
-
+    <div class="region"><h3>Mal i Zi</h3><p>Trevat shqiptare veriperëndimore</p></div>
+    <div class="region"><h3>Arbëreshët</h3><p>Komunitetet shqiptare në Itali</p></div>
+    <div class="region"><h3>Arvanitët</h3><p>Komunitetet historike në Greqi</p></div>
+    <div class="region"><h3>Ukrainë</h3><p>Komunitetet historike shqiptare</p></div>
   </div>
-
 </section>
 
-
-<!-- KOSTUMET -->
 <section class="section" id="kostumet">
-
   <h2 class="section-title">Kostumet</h2>
 
   <p class="subtitle">
-    Koleksioni do të ndërtohet kostum pas kostumi,
-    me pamje të plotë dhe informacion për secilën veshje.
+    Koleksioni i veshjeve tradicionale do të organizohet sipas
+    trevës, gjinisë dhe variantit të kostumit.
   </p>
 
-  <div class="costume-grid">
+  <div class="filters">
+    <div class="filter">Të gjitha</div>
+    <div class="filter">Gra</div>
+    <div class="filter">Burra</div>
+    <div class="filter">Vajza</div>
+    <div class="filter">Djem</div>
+    <div class="filter">Ceremoniale</div>
+  </div>
+
+  <div class="costumes">
 
     <div class="costume">
-      <div class="costume-image">
-        FOTO<br>GRUA MYZEQARE
-      </div>
-
+      <div class="costume-photo">FOTO E KOSTUMIT</div>
       <div class="costume-info">
         <h3>Gruaja Myzeqare</h3>
-        <p>Myzeqe</p>
+        <p>Myzeqe • Femër</p>
       </div>
     </div>
 
     <div class="costume">
-      <div class="costume-image">
-        FOTO<br>BURRË MYZEQAR
-      </div>
-
+      <div class="costume-photo">FOTO E KOSTUMIT</div>
       <div class="costume-info">
         <h3>Burri Myzeqar</h3>
-        <p>Myzeqe</p>
+        <p>Myzeqe • Mashkull</p>
       </div>
     </div>
 
     <div class="costume">
-      <div class="costume-image">
-        FOTO<br>VESHJE FEMËRORE
-      </div>
-
+      <div class="costume-photo">FOTO E KOSTUMIT</div>
       <div class="costume-info">
-        <h3>Veshje Femërore</h3>
-        <p>Koleksioni shqiptar</p>
+        <h3>Veshje Veriore</h3>
+        <p>Veri • Femër</p>
       </div>
     </div>
 
     <div class="costume">
-      <div class="costume-image">
-        FOTO<br>VESHJE MASHKULLORE
-      </div>
-
+      <div class="costume-photo">FOTO E KOSTUMIT</div>
       <div class="costume-info">
-        <h3>Veshje Mashkullore</h3>
-        <p>Koleksioni shqiptar</p>
+        <h3>Veshje Jugore</h3>
+        <p>Jug • Mashkull</p>
       </div>
     </div>
 
   </div>
-
 </section>
 
-
-<!-- HARTA -->
 <section class="section" id="harta">
-
   <h2 class="section-title">Harta</h2>
 
   <p class="subtitle">
-    Atlasi gjeografik i kostumeve tradicionale shqiptare.
+    Harta interaktive do të lidhë çdo trevë me kostumet përkatëse.
   </p>
 
-  <div class="map-box">
-
+  <div class="map">
     <div>
-
-      <div class="map-symbol">⌖</div>
-
+      <div class="map-icon">⌖</div>
       <h3>Harta e Kostumeve</h3>
-
       <p>
-        Këtu do të ndërtohet harta interaktive.
-        Prekja e një treve do të hapë kostumet
-        tradicionale të asaj zone.
+        Prekja e një zone do të hapë koleksionin e kostumeve
+        tradicionale të asaj treve.
       </p>
-
     </div>
-
   </div>
-
 </section>
 
-
-<!-- 3D -->
-<section class="section" id="treD">
-
+<section class="section" id="3d">
   <h2 class="section-title">Galeria 3D</h2>
 
   <p class="subtitle">
-    Kostumet do të mund të shihen nga çdo kënd.
+    Modelet e kostumeve do të mund të rrotullohen dhe zmadhohen.
   </p>
 
   <div class="viewer">
-
     <div>
-
-      <div class="cube">3D</div>
+      <div class="model">3D</div>
 
       <h3>Gardëroba 3D</h3>
 
       <p>
         Këtu do të vendosen modelet GLB të kostumeve.
-        Ato do të mund të rrotullohen dhe zmadhohen
-        drejtpërdrejt nga telefoni.
+        Përdoruesi do të mund t'i shohë nga çdo kënd
+        drejtpërdrejt në telefon.
       </p>
-
     </div>
-
   </div>
-
 </section>
 
-
-<!-- HISTORIA -->
 <section class="section" id="historia">
-
   <h2 class="section-title">Historia</h2>
 
   <p class="subtitle">
-    Veshja si kujtesë, mjeshtëri dhe identitet.
+    Veshja tradicionale si kujtesë, mjeshtëri dhe identitet.
   </p>
 
   <div class="history">
-
     <h3>Trashëgimia e veshur</h3>
-
     <p>
-      Kostumet tradicionale shqiptare përfaqësojnë
-      një trashëgimi të pasur të formuar nga krahinat,
-      mjeshtëritë vendase dhe mënyrat e jetesës.
+      Kostumet tradicionale shqiptare janë formuar nga historia,
+      mjedisi, mjeshtëritë vendase dhe mënyrat e jetesës
+      të komuniteteve shqiptare.
     </p>
 
     <h3>Atlasi Digjital</h3>
-
     <p>
-      Ky projekt synon t'i paraqesë veshjet në mënyrë
-      vizuale dhe interaktive, duke bashkuar fotografinë,
-      informacionin krahinor, hartën dhe modelet 3D.
+      Ky projekt do të bashkojë fotografitë, informacionin
+      krahinor, hartën dhe modelet 3D në një koleksion të vetëm
+      të përdorshëm nga telefoni.
     </p>
-
   </div>
-
 </section>
 
-
 <footer>
-  Kostumet Tradicionale Shqiptare<br><br>
+  Kostumet Tradicionale Shqiptare<br>
   Atlas Digjital i Trashëgimisë Shqiptare
 </footer>
 
