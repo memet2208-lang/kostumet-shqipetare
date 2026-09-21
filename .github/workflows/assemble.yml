@@ -1,0 +1,55 @@
+name: Publiko KOSTUMI IM
+
+on:
+  push:
+    paths:
+      - "KOSTUMI_IM.zip.part*"
+      - ".github/workflows/assemble.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bashko paketen
+        run: |
+          if [ -f KOSTUMI_IM.zip.part0 ]; then
+            cat KOSTUMI_IM.zip.part0 KOSTUMI_IM.zip.part1 KOSTUMI_IM.zip.part2 > KOSTUMI_IM.zip
+            unzip -o KOSTUMI_IM.zip -x ".github/workflows/pages.yml"
+            rm -f KOSTUMI_IM.zip KOSTUMI_IM.zip.part
+                        rm -f KOSTUMI_IM.zip.part0 KOSTUMI_IM.zip.part1 KOSTUMI_IM.zip.part2
+            git config user.name github-actions
+            git config user.email actions@github.com
+            git add -A
+            git commit -m "Publikimi final KOSTUMI IM"
+            git push
+          fi
+
+      - name: Pergatit faqen
+        run: |
+          mkdir -p _site
+          cp index.html manifest.webmanifest .nojekyll _site/
+          cp -r assets _site/
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Publiko faqen
+        id: deployment
+        uses: actions/deploy-pages@v4
