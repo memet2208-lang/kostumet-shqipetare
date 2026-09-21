@@ -1,0 +1,232 @@
+name: Nderto APK offline
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/build-apk.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Merr projektin
+        uses: actions/checkout@v4
+
+      - name: Pergatit Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Pergatit Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.7"
+
+      - name: Krijo projektin Android offline
+        env:
+          APK_SECRET: ${{ secrets.APK_SECRET }}
+          KEYSTORE_ENCRYPTED: "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"
+        run: |
+          test -n "$APK_SECRET" || { echo "Mungon sekreti APK_SECRET"; exit 1; }
+          mkdir -p app/src/main/java/al/kostumiim/app
+          mkdir -p app/src/main/res/values app/src/main/res/drawable
+          mkdir -p app/src/main/assets
+
+          printf '%s' "$KEYSTORE_ENCRYPTED" | base64 -d > kostumi-im.jks.enc
+          openssl enc -d -aes-256-cbc -pbkdf2 \
+            -in kostumi-im.jks.enc -out kostumi-im.jks \
+            -pass env:APK_SECRET
+
+          cp index.html app/src/main/assets/index.html
+          cp manifest.webmanifest app/src/main/assets/manifest.webmanifest
+          cp -r assets app/src/main/assets/assets
+          cp assets/icons/icon-512.png app/src/main/res/drawable/app_icon.png
+
+          cat > settings.gradle <<'EOF'
+          pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }
+          dependencyResolutionManagement { repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS); repositories { google(); mavenCentral() } }
+          rootProject.name = 'KOSTUMI IM'
+          include ':app'
+          EOF
+
+          cat > build.gradle <<'EOF'
+          plugins {
+              id 'com.android.application' version '8.6.1' apply false
+          }
+          EOF
+
+          cat > app/build.gradle <<'EOF'
+          plugins { id 'com.android.application' }
+
+          def apkSecret = System.getenv('APK_SECRET')
+
+          android {
+              namespace 'al.kostumiim.app'
+              compileSdk 35
+
+              defaultConfig {
+                  applicationId 'al.kostumiim.app'
+                  minSdk 23
+                  targetSdk 35
+                  versionCode 1
+                  versionName '1.0.0'
+              }
+
+              signingConfigs {
+                  release {
+                      storeFile file('../kostumi-im.jks')
+                      storePassword apkSecret
+                      keyAlias 'kostumiim'
+                      keyPassword apkSecret
+                  }
+              }
+
+              buildTypes {
+                  release {
+                      signingConfig signingConfigs.release
+                      minifyEnabled false
+                  }
+              }
+          }
+          EOF
+
+          cat > app/src/main/AndroidManifest.xml <<'EOF'
+          <?xml version="1.0" encoding="utf-8"?>
+          <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+              <uses-permission android:name="android.permission.INTERNET" />
+              <application
+                  android:allowBackup="true"
+                  android:icon="@drawable/app_icon"
+                  android:roundIcon="@drawable/app_icon"
+                  android:label="KOSTUMI IM"
+                  android:theme="@style/Theme.KostumiIm"
+                  android:usesCleartextTraffic="true">
+                  <activity
+                      android:name=".MainActivity"
+                      android:configChanges="orientation|screenSize|keyboardHidden"
+                      android:exported="true">
+                      <intent-filter>
+                          <action android:name="android.intent.action.MAIN" />
+                          <category android:name="android.intent.category.LAUNCHER" />
+                      </intent-filter>
+                  </activity>
+              </application>
+          </manifest>
+          EOF
+
+          cat > app/src/main/res/values/styles.xml <<'EOF'
+          <?xml version="1.0" encoding="utf-8"?>
+          <resources>
+              <style name="Theme.KostumiIm" parent="android:style/Theme.Material.Light.NoActionBar">
+                  <item name="android:fontFamily">sans</item>
+                  <item name="android:windowActionModeOverlay">true</item>
+                  <item name="android:colorAccent">#8B1530</item>
+                  <item name="android:navigationBarColor">#000000</item>
+                  <item name="android:statusBarColor">#000000</item>
+              </style>
+          </resources>
+          EOF
+
+          cat > app/src/main/java/al/kostumiim/app/MainActivity.java <<'EOF'
+          package al.kostumiim.app;
+
+          import android.annotation.SuppressLint;
+          import android.app.Activity;
+          import android.content.Intent;
+          import android.net.Uri;
+          import android.os.Bundle;
+          import android.webkit.WebChromeClient;
+          import android.webkit.WebResourceRequest;
+          import android.webkit.WebSettings;
+          import android.webkit.WebView;
+          import android.webkit.WebViewClient;
+
+          public class MainActivity extends Activity {
+              private WebView webView;
+
+              @SuppressLint("SetJavaScriptEnabled")
+              @Override
+              protected void onCreate(Bundle savedInstanceState) {
+                  super.onCreate(savedInstanceState);
+                  webView = new WebView(this);
+                  setContentView(webView);
+
+                  WebSettings settings = webView.getSettings();
+                  settings.setJavaScriptEnabled(true);
+                  settings.setDomStorageEnabled(true);
+                  settings.setAllowFileAccess(true);
+                  settings.setAllowContentAccess(true);
+                  settings.setBuiltInZoomControls(false);
+                  settings.setDisplayZoomControls(false);
+                  settings.setLoadWithOverviewMode(true);
+                  settings.setUseWideViewPort(true);
+                  settings.setMediaPlaybackRequiresUserGesture(false);
+
+                  webView.setWebChromeClient(new WebChromeClient());
+                  webView.setWebViewClient(new WebViewClient() {
+                      @Override
+                      public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                          Uri uri = request.getUrl();
+                          String scheme = uri.getScheme();
+                          if ("http".equals(scheme) || "https".equals(scheme)) {
+                              startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                              return true;
+                          }
+                          return false;
+                      }
+                  });
+
+                  if (savedInstanceState == null) {
+                      webView.loadUrl("file:///android_asset/index.html");
+                  } else {
+                      webView.restoreState(savedInstanceState);
+                  }
+              }
+
+              @Override
+              protected void onSaveInstanceState(Bundle outState) {
+                  webView.saveState(outState);
+                  super.onSaveInstanceState(outState);
+              }
+
+              @Override
+              public void onBackPressed() {
+                  if (webView.canGoBack()) webView.goBack();
+                  else super.onBackPressed();
+              }
+
+              @Override
+              protected void onDestroy() {
+                  webView.destroy();
+                  super.onDestroy();
+              }
+          }
+          EOF
+
+      - name: Nderto APK
+        env:
+          APK_SECRET: ${{ secrets.APK_SECRET }}
+        run: gradle --no-daemon assembleRelease
+
+      - name: Emerto APK
+        run: cp app/build/outputs/apk/release/app-release.apk KOSTUMI_IM_OFFLINE_v1.0.0.apk
+
+      - name: Ruaj APK si artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: KOSTUMI_IM_OFFLINE
+          path: KOSTUMI_IM_OFFLINE_v1.0.0.apk
+
+      - name: Publiko ne GitHub Releases
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.0
+          name: KOSTUMI IM - Android Offline v1.0.0
+          body: "Versioni i pare Android offline i atlasit KOSTUMI IM. Pas instalimit, katalogu dhe fotografite hapen pa internet."
+          files: KOSTUMI_IM_OFFLINE_v1.0.0.apk
